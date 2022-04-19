@@ -46,12 +46,12 @@ public class MyGenericDS<E> implements GenericOrderedCollection<E>{
         Node n = end;
         int count = length();
         //if index > count throw an exception
-        if (count >= index && index < 0) {
-            while (count > index) {
+        if (count >= index && index >= 0) {
+            while (count > index+2) {
                 n = n.prev;
                 count--;
             }
-            n.prev = n.prev.prev;
+            n.prev = (n.prev).prev;
             length--;
         }
 
